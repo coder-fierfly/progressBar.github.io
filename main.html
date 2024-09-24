@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Progress Circle</title>
+
+</head>
+<body>
+<div class="container">
+    <div class="progress-circle">
+        <svg viewBox="0 0 200 200">
+            <circle class="progress-background" cx="100" cy="100" r="90"></circle>
+            <circle class="progress-bar" cx="100" cy="100" r="90"
+                    stroke="blue" stroke-width="15" fill="none"
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48"
+                    stroke-linecap="butt"/>
+        </svg>
+    </div>
+    <div class="input-cont">
+        <input type="number" class="progress-in" id="progress-input" name="progress"/>
+        <p class="text-center">Value</p>
+        <label class="checkbox-ios">
+            <input type="checkbox" id="rotation-toggle">
+            <span class="checkbox-ios-switch"></span>
+        </label>
+        <p class="text-center">Animate</p>
+        <label class="checkbox-ios">
+            <input type="checkbox" id="hide-toggle">
+            <span class="checkbox-ios-switch"></span>
+        </label>
+        <p class="text-center">Hide</p>
+    </div>
+</div>
+<script src="index.js">
+</script>
+</body>
+</html>

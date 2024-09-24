@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    gap: 5vh;
+    align-items: center;
+    margin: 2em;
+}
+
+.progress-circle {
+    position: relative;
+    width: 40vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.progress-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 15;
+}
+
+.progress-background {
+    stroke: #e6e6e6;
+}
+
+.progress-bar {
+    stroke: #5f91ec;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.rotate {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.line-input {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    height: 2.5em;
+    align-self: start;
+}
+
+.text-center {
+    font-size: calc(1em + 2vw);
+    width: 3.5em;
+    text-align: start;
+    line-height: 1;
+    --text-height: calc(1em + 5vw);
+}
+
+.progress-in {
+    --text-height: calc(1em + 5vw);
+    font-size: calc(1em + 2vw);
+    border-radius: 30%/50%;
+    text-align: center;
+    height: var(--text-height);
+    width: calc(var(--text-height) * 1.8);
+    border: 0.1em solid #000000;
+}
+
+
+.checkbox-ios {
+    display: inline-block;
+    height: var(--text-height);
+    width: calc(var(--text-height) * 1.8);
+    line-height: 28px;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.checkbox-ios .checkbox-ios-switch {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: var(--text-height);
+    width: calc(var(--text-height) * 1.8);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 30%/50%;
+    vertical-align: top;
+    background: #eee;
+    transition: .2s;
+}
+
+.checkbox-ios .checkbox-ios-switch:before {
+    content: '';
+    position: absolute;
+    top: 0.4em;
+    left: 0.4em;
+    display: inline-block;
+    width: calc(var(--text-height) - 1em);
+    height: calc(var(--text-height) - 1em);
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    transition: .15s;
+}
+
+.checkbox-ios input[type=checkbox] {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkbox-ios input[type=checkbox]:not(:disabled):active + .checkbox-ios-switch:before {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch {
+    background: #5f91ec;
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch:before {
+    transform: translateX(calc(var(--text-height) * 0.8));
+}
+
+.checkbox-ios input[type="checkbox"]:not(:disabled) + .checkbox-ios-switch {
+    cursor: pointer;
+    border-color: rgba(0, 0, 0, .3);
+}
+
+.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch {
+    filter: grayscale(70%);
+    border-color: rgba(0, 0, 0, .1);
+}
+
+.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch:before {
+    background: #eee;
+}
+
+.checkbox-ios.focused .checkbox-ios-switch:before {
+    box-shadow: inset 0px 0px 4px #2356ff;
+}
+
+.input-cont {
+    display: grid;
+    gap: calc(3em + 1vw);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    --text-height: calc(1em + 7.5vw);
+}
+
+.hidden-block {
+    visibility: hidden;
+}
