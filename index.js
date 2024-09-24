@@ -12,8 +12,7 @@ const circumference = 2 * Math.PI * 90;
 
 // Функция обновления прогресса
 function updateProgress(value) {
-    const offset = circumference - (value / 100) * circumference;
-    progressBar.style.strokeDashoffset = offset;
+    progressBar.style.strokeDashoffset = circumference - (value / 100) * circumference;
 }
 
 // Событие при вводе значения
