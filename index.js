@@ -17,11 +17,11 @@ function updateProgress(value) {
 
 // Событие при вводе значения
 inputField.addEventListener('input', (e) => {
-    let value = parseInt(e.target.value);
-    if (isNaN(value) || value < 0) {
-        value = 0;
-    } else if (value > 100) {
-        value = 100;
+    let value = parseFloat(e.target.value);
+    if (value > 100 || value < 0) {
+        alert("Пожалуйста, введите число от 0 до 100.");
+        inputField.value = "";
+        return;
     }
     updateProgress(value);
 });
