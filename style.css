@@ -149,8 +149,8 @@ body {
     top: calc(var(--relative-size) * 0.05);
     left: calc(var(--relative-size) * 0.05);
     display: inline-block;
-    width: calc(var(--relative-size) * 0.85);
-    height: calc(var(--relative-size) * 0.85);
+    width: calc(var(--relative-size) * 0.9);
+    height: calc(var(--relative-size) * 0.9);
     border-radius: 50%;
     background: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
