@@ -16,15 +16,30 @@ body {
     gap: 5vh;
     align-items: center;
     margin: 2em;
+    --relative-size: calc(2em + 3.5vw);
+    --element-width: calc(var(--relative-size) * 1.8);
+    --element-height: var(--relative-size);
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        --relative-size: calc(2em + 3.5vh);
+        gap: 5vw;
+        --element-width: calc(var(--relative-size) * 1.8);
+        --element-height: var(--relative-size);
+    }
 }
 
 .progress-circle {
     position: relative;
-    width: 40vw;
-    height: auto;
+    width: calc(var(--relative-size) * 5);
+    height: calc(var(--relative-size) * 5);
     justify-content: center;
     align-items: center;
     margin: auto;
+    display: flex;
 }
 
 .progress-circle svg {
@@ -48,6 +63,8 @@ body {
 }
 
 .rotate {
+    transform-origin: center;
+    display: inline-block;
     animation: spin 2s linear infinite;
 }
 
@@ -81,32 +98,44 @@ body {
 }
 
 .progress-in {
+    position: relative;
     font-size: calc(1em + 2vw);
     border-radius: 30%/50%;
     text-align: center;
-    height: calc(var(--text-height) - 1em - 2vw);
-    width: calc(var(--text-height) + 0.5em);
+    height: var(--element-height);
+    width: var(--element-width);
     border: 0.1em solid #000000;
+    box-sizing: border-box;
+}
+
+.progress-in::-webkit-inner-spin-button,
+.progress-in::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.progress-in {
+    -moz-appearance: textfield;
 }
 
 
 .checkbox-ios {
     display: inline-block;
-    height: var(--text-height);
-    width: calc(var(--text-height) * 1.8);
-    line-height: 28px;
-    margin-right: 10px;
+    height: var(--element-height);
+    width: var(--element-width);
+    font-size: calc(1em + 2vw);
     position: relative;
     vertical-align: middle;
     user-select: none;
+    box-sizing: border-box;
 }
 
 .checkbox-ios .checkbox-ios-switch {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    height: var(--text-height);
-    width: calc(var(--text-height) * 1.8);
+    height: var(--element-height);
+    width: var(--element-width);
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 30%/50%;
     vertical-align: top;
@@ -117,11 +146,11 @@ body {
 .checkbox-ios .checkbox-ios-switch:before {
     content: '';
     position: absolute;
-    top: 0.4em;
-    left: 0.4em;
+    top: calc(var(--relative-size) * 0.05);
+    left: calc(var(--relative-size) * 0.05);
     display: inline-block;
-    width: calc(var(--text-height) - 1em);
-    height: calc(var(--text-height) - 1em);
+    width: calc(var(--relative-size) * 0.85);
+    height: calc(var(--relative-size) * 0.85);
     border-radius: 50%;
     background: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
@@ -146,7 +175,7 @@ body {
 }
 
 .checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch:before {
-    transform: translateX(calc(var(--text-height) * 0.8));
+    transform: translateX(calc(var(--relative-size) * 0.8));
 }
 
 .checkbox-ios input[type="checkbox"]:not(:disabled) + .checkbox-ios-switch {
@@ -169,10 +198,11 @@ body {
 
 .input-cont {
     display: grid;
-    gap: calc(3em + 1vw);
+    gap: calc(var(--relative-size) * 0.5);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    --text-height: calc(3em + 5.5vw);
+    box-sizing: border-box;
+    align-items: center;
 }
 
 .hidden-block {
